@@ -207,8 +207,8 @@ html_static_path = ['_static']
 htmlhelp_basename = 'ZeroDB-as-a-servicedoc'
 
 # -- Options for LaTeX output ---------------------------------------------
-
 latex_elements = {
+        'preamble': r'\usepackage{librebaskerville}'
 # The paper size ('letterpaper' or 'a4paper').
 #'papersize': 'letterpaper',
 
@@ -227,7 +227,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'ZeroDB-as-a-service.tex', u'ZeroDB-as-a-service Documentation',
-     u'ZeroDB, Inc.', 'manual'),
+     u'ZeroDB, Inc.', 'howto'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
