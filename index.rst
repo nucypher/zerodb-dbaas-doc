@@ -30,11 +30,20 @@ as a hashing algorithm and email address as salt. Private key is calculated
 right in the browser, public key is derived from it and sent to the server,
 along with email address. Private key is not saved anywhere.
 
+Data encryption key (the actual symmetric key to encrypt data) is stored on the
+server, encrypted with a symmetric key equal to private key from the
+passphrase. We don't need public key encryption here because we don't want
+somebody else to be able to write to our index on our behalf.
+
 GPG key
 '''''''''''''
 If GPG key way is chosen, user uploads a GPG key in export format. Server saves
 only the signing part to confirm user's identity. Alternatively, there are ways
 to generate a GPG key right in the browser without talking to the server.
+
+Private data encryption key is used to encrypt a random symmetric key to
+encrypt the data, and that is stored at the server side during the registration
+as well.
 
 Confirmation
 '''''''''''''
@@ -61,7 +70,7 @@ and uses as::
 
 or::
 
-    $ zerodb-cli register president@whitehouse.gov [--use-gpg]
+    $ zerodb-cli register president@whitehouse.gov [--use-gpg] [--keyfile ...]
     Account requested for president@whitehouse.gov
     Look for confirmation email in your inbox!
 
@@ -69,8 +78,30 @@ If a GPG key exists for the email address in a local keyring, it should be used
 (unless --no-gpg is specified). Otherwise, a passphrase is used for account
 creation.
 
-Changing passphrase or certificate
+Changing passphrase or GPG key
 ------------------------------------
+
+Changing passphrase or certificate can be done either in web UI or from a CLI,
+similarly to how it works in registration (apart from confirmation email).
+
+Another difference is that we decrypt and encrypt a data encrypting key with
+new key from certificate (or passphrase). So, the user doesn't have to
+re-encrypt all his data when changing the gpg key or passphrase: everything
+happens instantly.
+
+Changing passphrase in the CLI::
+
+    $ zerodb-cli new-passphrase president@whitehouse.gov
+    Enter current passphrase:
+    Enter new passphrase:
+    Repeat the new passphrase:
+    Passphrase for president@whitehouse.gov was changed!
+
+Or changing GPG key (or switching to using gpg) from the CLI. Old key is not::
+
+    $ zerodb-cli new-key president@whitehouse.gov
+                 --old-key <key_id or dump> / --old-passphrase
+                 --new-key <key_id or dump>
 
 Usage and billing
 -------------------
