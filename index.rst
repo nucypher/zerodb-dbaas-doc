@@ -127,6 +127,22 @@ in the same database without necessarily knowing it.
 
 Multi-user server
 ---------------------
+Multi-user account can create and manage other users. This could be done
+through web interface or CLI using zerodb-manage tool::
+
+    $ zerodb-manage console email@domain.com
+    >> ls
+    alice@nist.gov
+    bob@mit.edu
+    charlie@google.com
+    >> userdel charlie@google.com
+    User charlie@google.com has been removed
+    >> useradd eve@microsoft.com
+    Enter path to the key file or passphrase:
+    User eve@microsoft.com was successfully added
+    >> chkey eve@microsoft.com
+    Path to old key:
+    Path to new key:
 
 .. note:: Multi-user account gets, in a way, some powers we have: power to
           create and manage single users.
