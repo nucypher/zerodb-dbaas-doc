@@ -168,15 +168,44 @@ ZeroDB client
 
 Hosted client (for development)
 ----------------------------------
+We host a docker container with ZeroDB client deployed for those who want to
+try it without installing on their machine.
+Client information (such as encryption keys etc) is persisted but stored on our
+servers. Needed mainly to run proof of concepts quickly, use on hackathon
+events etc.
+
+SSH access + SSH terminal in the browser are provided to the container. No
+stability is expected here, so no monitoring. This can change if clients
+request.
 
 Local client
 --------------
+
+Local client is when ZeroDB is used as a library or exposes JSON API (for
+example, to write the rest of the application in Javascript).
+
+Local client can:
+
+* Authenticate with a key or passphrase;
+* Perform database queries;
+* Change passphrase or generate a new GPG encryption key;
+
+It can either run in a local Docker container or be running by Python directly
+(or in virtualenv).
 
 Interfacing from non-Python languages
 ---------------------------------------
 
 JSON API
 ``````````
+ZeroDB exposes JSON API, similar to [sleepy.mongoose]_.
+
+ZeroDB also should have a possibility of managing the account (changing
+username/password, removing account and wiping data), and packing the database.
+
+JSON API can work over UNIX or TCP socket.
+
+.. [sleepy.mongoose] https://github.com/mongodb-labs/sleepy.mongoose
 
 JavaScript wrapper for JSON API
 `````````````````````````````````
@@ -186,6 +215,11 @@ Writing applications with ZeroDB
 
 Command-line application example
 ----------------------------------
+Python command-line e2e-encrypted note-taking program?
+
 
 GUI application example (Electron)
 ------------------------------------
+
+Note-taking program with Electron (interface in Javascript, ZeroDB component
+running separately, packaged in)?
