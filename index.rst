@@ -144,14 +144,24 @@ through web interface or CLI using zerodb-manage tool::
     Path to old key:
     Path to new key:
 
-.. note:: Multi-user account gets, in a way, some powers we have: power to
-          create and manage single users.
+Creators of multi-user accounts can also allow other (secondary) users to
+register under database root of the primary user. They can allow to set
+passphrases and/or keys through browser or Python API. We can also take care of
+optional registration confirmation messages for them.
 
-User management
-`````````````````
+We can debug this feature hosting single-user accounts of "secondary users"
+under our own primary account.
+
+Multi-user accounts are also hosted in their own Docker containers, with
+individual monitoring. This makes them more robust.
 
 Time machine
 --------------
+
+Leveraging ZODB version control, users can have optional "infinite undo"
+powers. When this feature is disabled, database is periodically packed at the
+server side. Time at which to observe the database can be specified when
+connecting to the database. If it is done, database will be read-only.
 
 ZeroDB client
 ===============
