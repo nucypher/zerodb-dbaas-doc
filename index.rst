@@ -105,15 +105,31 @@ Or changing GPG key (or switching to using gpg) from the CLI. Old key is not::
 
 Usage and billing
 -------------------
+Users of ZeroDB service are able to pre-reserve disk space for the database.
+Also web UI shows how much of the space is currently used.
+
+Also (because Amazon pricing depends on it) the server collects statistics
+about traffic and number of transactions. Even when this information is not
+used for pricing, it is good to know for statistics.
 
 Hosted ZeroDB server
 ======================
 
 Single-user server
 ---------------------
+Single-user is for personal use and development activities. User has a
+email/passphrase pair (or gpg key). But this regime is not suitable for
+companies which want to build end-to-end encrypted applications for multiple
+users, for example.
+
+Also in single-user deployment, user could be physically co-located with others
+in the same database without necessarily knowing it.
 
 Multi-user server
 ---------------------
+
+.. note:: Multi-user account gets, in a way, some powers we have: power to
+          create and manage single users.
 
 User management
 `````````````````
