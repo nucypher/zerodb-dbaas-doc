@@ -3,20 +3,59 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to ZeroDB-as-a-service's documentation!
+ZeroDB-as-a-service's documentation
 ===============================================
 
-Contents:
+Account
+========
 
-.. toctree::
-   :maxdepth: 2
+Registration
+--------------
 
+Changing passphrase or certificate
+------------------------------------
 
+Usage and billing
+-------------------
 
-Indices and tables
-==================
+Hosted ZeroDB server
+======================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+Single-user server
+---------------------
 
+Multi-user server
+---------------------
+
+User management
+`````````````````
+
+Time machine
+--------------
+
+ZeroDB client
+===============
+
+Hosted client (for development)
+----------------------------------
+
+Local client
+--------------
+
+Interfacing from non-Python languages
+---------------------------------------
+
+JSON API
+``````````
+
+JavaScript wrapper for JSON API
+`````````````````````````````````
+
+Writing applications with ZeroDB
+==================================
+
+Command-line application example
+----------------------------------
+
+GUI application example (Electron)
+------------------------------------
